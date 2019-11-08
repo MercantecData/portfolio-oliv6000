@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TingOgSagerMedPoul", "TingOgSagerMedPoul\TingOgSagerMedPoul.csproj", "{FB94FE5F-AD33-4CAB-A686-0E9A9EAF8EF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB94FE5F-AD33-4CAB-A686-0E9A9EAF8EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB94FE5F-AD33-4CAB-A686-0E9A9EAF8EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB94FE5F-AD33-4CAB-A686-0E9A9EAF8EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB94FE5F-AD33-4CAB-A686-0E9A9EAF8EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D70A670-A377-46F7-9CDA-B34040198EEC}
+	EndGlobalSection
+EndGlobal
