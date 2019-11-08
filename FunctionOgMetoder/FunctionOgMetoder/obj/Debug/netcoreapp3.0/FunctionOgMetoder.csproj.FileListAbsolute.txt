@@ -1,0 +1,11 @@
+C:\Users\OIOl.skp\source\repos\FunctionOgMetoder\FunctionOgMetoder\bin\Debug\netcoreapp3.0\FunctionOgMetoder.exe
+C:\Users\OIOl.skp\source\repos\FunctionOgMetoder\FunctionOgMetoder\bin\Debug\netcoreapp3.0\FunctionOgMetoder.deps.json
+C:\Users\OIOl.skp\source\repos\FunctionOgMetoder\FunctionOgMetoder\bin\Debug\netcoreapp3.0\FunctionOgMetoder.runtimeconfig.json
+C:\Users\OIOl.skp\source\repos\FunctionOgMetoder\FunctionOgMetoder\bin\Debug\netcoreapp3.0\FunctionOgMetoder.runtimeconfig.dev.json
+C:\Users\OIOl.skp\source\repos\FunctionOgMetoder\FunctionOgMetoder\bin\Debug\netcoreapp3.0\FunctionOgMetoder.dll
+C:\Users\OIOl.skp\source\repos\FunctionOgMetoder\FunctionOgMetoder\bin\Debug\netcoreapp3.0\FunctionOgMetoder.pdb
+C:\Users\OIOl.skp\source\repos\FunctionOgMetoder\FunctionOgMetoder\obj\Debug\netcoreapp3.0\FunctionOgMetoder.csprojAssemblyReference.cache
+C:\Users\OIOl.skp\source\repos\FunctionOgMetoder\FunctionOgMetoder\obj\Debug\netcoreapp3.0\FunctionOgMetoder.AssemblyInfoInputs.cache
+C:\Users\OIOl.skp\source\repos\FunctionOgMetoder\FunctionOgMetoder\obj\Debug\netcoreapp3.0\FunctionOgMetoder.AssemblyInfo.cs
+C:\Users\OIOl.skp\source\repos\FunctionOgMetoder\FunctionOgMetoder\obj\Debug\netcoreapp3.0\FunctionOgMetoder.dll
+C:\Users\OIOl.skp\source\repos\FunctionOgMetoder\FunctionOgMetoder\obj\Debug\netcoreapp3.0\FunctionOgMetoder.pdb
