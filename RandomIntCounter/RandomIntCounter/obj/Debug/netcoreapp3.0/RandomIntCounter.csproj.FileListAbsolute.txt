@@ -1,0 +1,11 @@
+C:\Users\OIOl.skp\source\repos\RandomIntCounter\RandomIntCounter\bin\Debug\netcoreapp3.0\RandomIntCounter.exe
+C:\Users\OIOl.skp\source\repos\RandomIntCounter\RandomIntCounter\bin\Debug\netcoreapp3.0\RandomIntCounter.deps.json
+C:\Users\OIOl.skp\source\repos\RandomIntCounter\RandomIntCounter\bin\Debug\netcoreapp3.0\RandomIntCounter.runtimeconfig.json
+C:\Users\OIOl.skp\source\repos\RandomIntCounter\RandomIntCounter\bin\Debug\netcoreapp3.0\RandomIntCounter.runtimeconfig.dev.json
+C:\Users\OIOl.skp\source\repos\RandomIntCounter\RandomIntCounter\bin\Debug\netcoreapp3.0\RandomIntCounter.dll
+C:\Users\OIOl.skp\source\repos\RandomIntCounter\RandomIntCounter\bin\Debug\netcoreapp3.0\RandomIntCounter.pdb
+C:\Users\OIOl.skp\source\repos\RandomIntCounter\RandomIntCounter\obj\Debug\netcoreapp3.0\RandomIntCounter.csprojAssemblyReference.cache
+C:\Users\OIOl.skp\source\repos\RandomIntCounter\RandomIntCounter\obj\Debug\netcoreapp3.0\RandomIntCounter.AssemblyInfoInputs.cache
+C:\Users\OIOl.skp\source\repos\RandomIntCounter\RandomIntCounter\obj\Debug\netcoreapp3.0\RandomIntCounter.AssemblyInfo.cs
+C:\Users\OIOl.skp\source\repos\RandomIntCounter\RandomIntCounter\obj\Debug\netcoreapp3.0\RandomIntCounter.dll
+C:\Users\OIOl.skp\source\repos\RandomIntCounter\RandomIntCounter\obj\Debug\netcoreapp3.0\RandomIntCounter.pdb
