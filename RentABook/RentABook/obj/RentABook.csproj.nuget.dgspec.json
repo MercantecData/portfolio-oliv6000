@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ASkoleOpgaver\\RentABook\\RentABook\\RentABook.csproj": {}
+    "C:\\ASkoleOpgaver\\ASkoleArbejde\\RentABook\\RentABook\\RentABook.csproj": {}
   },
   "projects": {
-    "C:\\ASkoleOpgaver\\RentABook\\RentABook\\RentABook.csproj": {
+    "C:\\ASkoleOpgaver\\ASkoleArbejde\\RentABook\\RentABook\\RentABook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ASkoleOpgaver\\RentABook\\RentABook\\RentABook.csproj",
+        "projectUniqueName": "C:\\ASkoleOpgaver\\ASkoleArbejde\\RentABook\\RentABook\\RentABook.csproj",
         "projectName": "RentABook",
-        "projectPath": "C:\\ASkoleOpgaver\\RentABook\\RentABook\\RentABook.csproj",
+        "projectPath": "C:\\ASkoleOpgaver\\ASkoleArbejde\\RentABook\\RentABook\\RentABook.csproj",
         "packagesPath": "C:\\Users\\OIOl.skp\\.nuget\\packages\\",
-        "outputPath": "C:\\ASkoleOpgaver\\RentABook\\RentABook\\obj\\",
+        "outputPath": "C:\\ASkoleOpgaver\\ASkoleArbejde\\RentABook\\RentABook\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

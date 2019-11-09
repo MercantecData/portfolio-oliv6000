@@ -20,3 +20,14 @@ C:\ASkoleOpgaver\portfolio-oliv6000\RentABook\RentABook\bin\Debug\netcoreapp3.0\
 C:\ASkoleOpgaver\portfolio-oliv6000\RentABook\RentABook\bin\Debug\netcoreapp3.0\RentABook.runtimeconfig.dev.json
 C:\ASkoleOpgaver\portfolio-oliv6000\RentABook\RentABook\bin\Debug\netcoreapp3.0\RentABook.dll
 C:\ASkoleOpgaver\portfolio-oliv6000\RentABook\RentABook\bin\Debug\netcoreapp3.0\RentABook.pdb
+C:\ASkoleOpgaver\ASkoleArbejde\RentABook\RentABook\bin\Debug\netcoreapp3.0\RentABook.exe
+C:\ASkoleOpgaver\ASkoleArbejde\RentABook\RentABook\bin\Debug\netcoreapp3.0\RentABook.deps.json
+C:\ASkoleOpgaver\ASkoleArbejde\RentABook\RentABook\bin\Debug\netcoreapp3.0\RentABook.runtimeconfig.json
+C:\ASkoleOpgaver\ASkoleArbejde\RentABook\RentABook\bin\Debug\netcoreapp3.0\RentABook.runtimeconfig.dev.json
+C:\ASkoleOpgaver\ASkoleArbejde\RentABook\RentABook\bin\Debug\netcoreapp3.0\RentABook.dll
+C:\ASkoleOpgaver\ASkoleArbejde\RentABook\RentABook\bin\Debug\netcoreapp3.0\RentABook.pdb
+C:\ASkoleOpgaver\ASkoleArbejde\RentABook\RentABook\obj\Debug\netcoreapp3.0\RentABook.csprojAssemblyReference.cache
+C:\ASkoleOpgaver\ASkoleArbejde\RentABook\RentABook\obj\Debug\netcoreapp3.0\RentABook.AssemblyInfoInputs.cache
+C:\ASkoleOpgaver\ASkoleArbejde\RentABook\RentABook\obj\Debug\netcoreapp3.0\RentABook.AssemblyInfo.cs
+C:\ASkoleOpgaver\ASkoleArbejde\RentABook\RentABook\obj\Debug\netcoreapp3.0\RentABook.dll
+C:\ASkoleOpgaver\ASkoleArbejde\RentABook\RentABook\obj\Debug\netcoreapp3.0\RentABook.pdb

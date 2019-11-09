@@ -12,6 +12,7 @@ namespace RentABook
         public string BookIsRented;
         public string UserBookChoice;
         public string UsersDecision;
+        public string[] test;
 
         public Library()
         {
@@ -49,33 +50,7 @@ namespace RentABook
         }
         public void WelcomMessageMenu()
         {
-            bool IsTrue = true;
-
-            while (IsTrue)
-            {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("Please pick on of the following------>");
-                Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine("1. Log in\n2. Sign up\n");
-
-                string UsersChoice = Console.ReadLine();
-
-                if (UsersChoice == "1")
-                {
-                    IsTrue = false;
-                    LogIn();
-                }
-                else if (UsersChoice == "2")
-                {
-                    IsTrue = false;
-                    SignUp();
-                }
-                else if (UsersChoice == "")
-                {
-
-                }
-
-            }
+            
         }
         public void BooksInLibrary()
         {
