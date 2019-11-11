@@ -64,5 +64,10 @@ table {
 
     width: 30%;
     height: 500px;
-  }
+}
 
+h1.demo{
+  text-align: right;
+  color: white;
+  margin-left: 58%;
+}
