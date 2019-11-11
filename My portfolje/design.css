@@ -22,12 +22,12 @@ body {
 }
 
 ul {
-    font-size: 20px;
+  font-size: 18px;
   list-style-type: none;
   margin: 0;
   padding: 10px;
   overflow: hidden;
-  background-color: black;
+  background-color: rgb(24, 24, 24);
 }
 
 li {
@@ -43,18 +43,26 @@ li a {
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: rgb(3, 3, 3);
 }
 
-h1.Overskrift {
-    margin-top: 10px;
-    margin-left: 10px;
-    text-shadow: 2px 2px 2px #f291ff;
+h2.Overskrift {
+    margin-top: 16px;
+    margin-left: 19px;
+    color: black;
+    text-shadow: 3px 2px 3px white;
+    text-align: left;
 }
 
 table {
-    border-collapse: collapse;
-    border: 1px solid black;
-  }
+    border-collapse: separate;
+    border: 8px dashed #ffe478;
+    background-color: #fff0b3;
 
+    margin-left: 20px;
+    margin-top: 20px;
+
+    width: 30%;
+    height: 500px;
+  }
 
