@@ -66,8 +66,41 @@ table {
     height: 500px;
 }
 
-h1.demo{
+h1.LiveTime{
   text-align: right;
   color: white;
-  margin-left: 58%;
+  
+}
+
+li.Time{
+  float: right;
+}
+
+img.OliverSeflfi{
+  max-width: 200px;
+  max-height: 500px;
+}
+
+
+div.SelfMadeButton{
+  padding: 0px;
+  margin: 0px;
+  margin-top: 20px;
+  margin-left: 20px;
+  border: 2px solid black;
+  width: 129px;
+  height: 20px;
+  border-radius: 2px;
+
+  background-color: #c0c0c0;
+}
+
+div.SelfMadeButton:hover{
+  cursor: pointer;
+  background-color: #e0e0e0;
+}
+
+div.SelfMadeButton:active{
+  background-color: #808080;
+  cursor: -webkit-grabbing;
 }

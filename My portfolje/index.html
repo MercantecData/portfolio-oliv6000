@@ -13,14 +13,45 @@
             <li><a id="NavigationMenu" href="https://en.wikipedia.org/wiki/Gamer" target="_blank"><b>Spare time activity 2</b></a></li>
             <li><a id="NavigationMenu" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><b>Obtain knowledge</b></a></li>
             <li><a id="NavigationMenu" class="about" href="AboutMePage.html"><b>About</b></a></li>
-            <li class="test"><h1 class="demo" id="demo"></h1></li>
+            <li class="Time"><h1 class="LiveTime" id="demo"></h1></li>
         </ul>
 
         <h1 class="Overskrift">Her sker der egentligt ikke så meget endnu!</h1>
 
+<!-- Her henter jeg timer og minutter som en klokke, som bliver opdateret. -->
+<br><br><br>
+        <button onclick="AddLiveTime(this)">Click to show time</button>
+        <br><br>
+            
+<!-- Here i change the data within the button "ChangeTekst" -->
+        <button id="ChangeTekst" onclick="ChangeButtonTekst(this)">Click here to change tekst!</button>
+<br><br><br><br>
 
-        <button onclick="buttonClicked(this)">click here if you want to know the time!</button>
-        <p id="demo"></p>
+
+<!-- Next task where i can add or remove the picture -->
+        <img id="OliverPicture" class="OliverSeflfi" src="C:\ASkoleOpgaver\ASkoleArbejde\My portfolje\Selfi.jpg"></img>
+        <br><br>
+        <button id="AddSelfiPicture" onclick="AddPicture()">Click here to add the picture</button>
+        <button id="RemoveSelfiPicture" onclick="RemovePicture()">Click here to remove the picture</button>
+
+<!-- Here i pull data from within an array in js -->
+        <br><br><br><br>
+        <button onclick="AddArray()">Click here to see what games i play through an array</button>
+        <br><br>
+        <p id="MyGames"></p>
+
+<!-- Here i make it, so that you can add a comment, but only one, since i dont know how to make List -->
+    <form id="form" onsubmit="return false;">
+        <h2>Here u can add a comment, and watch it pop up below :O</h2>
+        <input type="text" name="UserComment" id="UserCommentt"><br>
+        <input id="UserInput" type="submit" value="submit" onclick="AddComent()">
+    </form>
+    <h3>Here is the comment you wrote-----></h3>
+    <p id="UserCommentPlaceHold"></p>
+
+
+    <!-- Here is the last task, CREATE your own button, but it does not lead or do anything -->
+    <div class="SelfMadeButton">Self created button</div>
 
 
     </body>
