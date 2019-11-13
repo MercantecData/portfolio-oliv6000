@@ -23,50 +23,20 @@ namespace RentABook
         {
             humans.Add(new Human(name, age, gender, username, password));
         }
-        public void SignUp()
+        public void SignUp(string Name, int Age, string Gender, string Username, string Password)
         {
-            Console.WriteLine("\n\nPlease create a user, if you want to rent a book legally!");
-            Console.WriteLine("Before we get started, please tell me the following--->\n");
-            Console.Write("Name: ");
-            string Name = Console.ReadLine();
-
-            Console.Write("Age: ");
-            int Age = int.Parse(Console.ReadLine());
-
-            Console.Write("Gender: ");
-            string Gender = Console.ReadLine();
-
-            Console.Write("Create username: ");
-            string Username = Console.ReadLine();
-            Console.Write("Create password: ");
-            string Password = Console.ReadLine();
-            //LibraryAddHuman(Username, Password, Name, Age, Gender);
             AddHumanToList(Name, Age, Gender, Username, Password);
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Your account has now sucesfully been created, now please log in, if you want to rent a book legally.\n\n");
-            Console.ForegroundColor = ConsoleColor.Gray;
-            WelcomMessageMenu();
         }
-        public void WelcomMessageMenu()
+        public void RegistredBooks()
         {
-            
-        }
-        public void BooksInLibrary()
-        {
-            //===========================================================Book nr 1
             books.Add(new Book("Book about your mother", 12, 01, 2013, false));
             books.Add(new Book("Book about your father", 02, 12, 2020, true));
             books.Add(new Book("Book about you", 16, 2, 2020, false));
             books.Add(new Book("Book about your dog", 8, 12, 2025, true));
             books.Add(new Book("Book about JOEMAMA", 31, 05, 2016, true));
-
-
-            //Console.WriteLine($"" + Book1.publishedDate + "/" + Book1.publishedmonth + "/" + Book1.publishedYear);
-
-            //Console.WriteLine($"" + Book2.publishedDate + "/" + Book2.publishedmonth + "/" + Book2.publishedYear);
-
-            //Console.WriteLine($"" + Book3.publishedDate + "/" + Book3.publishedmonth + "/" + Book3.publishedYear
+        }
+        public void BooksInLibrary()
+        {
             int i = 1;
             foreach (var book in books)
             {
@@ -78,9 +48,12 @@ namespace RentABook
                 {
                     BookIsRented = "no";
                 }
-                Console.WriteLine(i + ". Name: " + book.name + " Publish date: " + book.publishedDate + "/" + book.publishedmonth + "/" + book.publishedYear + "   Available: " + BookIsRented + "\n");
+                string BooksAvailable = i + ". Name: " + book.name + " Publish date: " + book.publishedDate + "/" + book.publishedmonth + "/" + book.publishedYear + "   Available: " + BookIsRented + "\n";
                 i += 1;
             }
+        }
+        public void RentABookFunction()
+        {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("What book would you like to rent?");
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -114,33 +87,12 @@ namespace RentABook
                     Redirect();
                 }
             }
-            Console.WriteLine();
         }
         //=========================================================== Users
         private void Redirect() => BooksInLibrary();
-        public void LogIn()
+        public void LogIn(string UserUsername, string UserPassword)
         {
-            bool IsTrue = true;
-            while (IsTrue)
-            {
-                Console.WriteLine("\n\nPlease long in with valid credentials, or create a new user.\nLogin in->");
-                Console.Write("Username: ");
-                string UserUsername = Console.ReadLine();
-                Console.Write("Password: ");
-                string UserPassword = Console.ReadLine();
-                foreach (var human in humans)
-                {
-                    if (UserUsername == human.Username && UserPassword == human.Password)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("\n\nYou have now sucesfully loged in!\n");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        IsTrue = false;
-                        CurrentUser = human.name;
-
-                    }
-                }
-            }
+            
         }
         //========================================================== End of users
         public void RentABook()
