@@ -113,7 +113,7 @@ div.SelfMadeButton:active{
   grid-template-rows: 6vh 80vh 15vh;
 
 
-  grid-template-areas: "Sidebar Header" "Sidebar Content" "Sidebar Footer";
+  grid-template-areas: "Sidebar Header" "Sidebar Content" "Footer Footer";
 }
 
 .Sidebar{
@@ -150,4 +150,14 @@ div.SelfMadeButton:active{
 
 .FooterText {
   margin: 15px;
+}
+
+.test{
+  color:yellow; 
+  font-weight: bold;
+}
+
+.PepeGif{
+  float: right;
+  margin-right: 65vh;
 }
