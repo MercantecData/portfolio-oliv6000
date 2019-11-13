@@ -104,3 +104,50 @@ div.SelfMadeButton:active{
   background-color: #808080;
   cursor: -webkit-grabbing;
 }
+
+/* ================================================================= */
+
+.grid{
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 6vh 80vh 15vh;
+
+
+  grid-template-areas: "Sidebar Header" "Sidebar Content" "Sidebar Footer";
+}
+
+.Sidebar{
+  grid-area: Sidebar;
+  background-color: blue;
+}
+
+.SidebarText {
+  margin: 15px;
+}
+
+.Header{
+  grid-area: Header;
+  background-color: red;
+}
+
+.HeaderText {
+  margin: 15px;
+}
+
+.Content{
+  grid-area: Content;
+  background-color: green;
+}
+
+.ContentText {
+  margin: 15px;
+}
+
+.Footer{
+  grid-area: Footer;
+  background-color: yellow; 
+}
+
+.FooterText {
+  margin: 15px;
+}
