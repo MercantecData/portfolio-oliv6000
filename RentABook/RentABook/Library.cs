@@ -29,28 +29,16 @@ namespace RentABook
         }
         public void RegistredBooks()
         {
-            books.Add(new Book("Book about your mother", 12, 01, 2013, false));
+            books.Add(new Book("Not available", 0, 00, 0000, false));
+            books.Add(new Book("Book about your mother", 12, 01, 2013, true));
             books.Add(new Book("Book about your father", 02, 12, 2020, true));
-            books.Add(new Book("Book about you", 16, 2, 2020, false));
+            books.Add(new Book("Book about you", 16, 2, 2020, true));
             books.Add(new Book("Book about your dog", 8, 12, 2025, true));
             books.Add(new Book("Book about JOEMAMA", 31, 05, 2016, true));
         }
-        public void BooksInLibrary()
+        public void RentBook(int BookNumber)
         {
-            int i = 1;
-            foreach (var book in books)
-            {
-                if (book.bookRented == true)
-                {
-                    BookIsRented = "Yes!";
-                }
-                else if (book.bookRented == false)
-                {
-                    BookIsRented = "no";
-                }
-                string BooksAvailable = i + ". Name: " + book.name + " Publish date: " + book.publishedDate + "/" + book.publishedmonth + "/" + book.publishedYear + "   Available: " + BookIsRented + "\n";
-                i += 1;
-            }
+            books[BookNumber].bookRented = false;
         }
         public void RentABookFunction()
         {
@@ -84,12 +72,10 @@ namespace RentABook
                 else if (UsersDecision == "n")
                 {
                     Console.WriteLine("Okay, Showing you available books again!");
-                    Redirect();
                 }
             }
         }
         //=========================================================== Users
-        private void Redirect() => BooksInLibrary();
         public void LogIn(string UserUsername, string UserPassword)
         {
             
@@ -104,7 +90,6 @@ namespace RentABook
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("We have the following books available\n");
             Console.ForegroundColor = ConsoleColor.Gray;
-            BooksInLibrary();
         }
 
     }
