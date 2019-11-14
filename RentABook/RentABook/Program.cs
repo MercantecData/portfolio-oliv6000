@@ -30,41 +30,42 @@ namespace RentABook
                     string UsersChoice = Console.ReadLine();
                     if (UsersChoice == "1")
                     {
-                        Console.WriteLine("\n\nPlease long in with valid credentials, or create a new user.\nLogin in->");
-                        Console.Write("Username: ");
-                        string UserUsername = Console.ReadLine();
-                        Console.Write("Password: ");
-                        string UserPassword = Console.ReadLine();
-
                         bool testing = true;
-                        foreach (var human in lib.humans)
+
+                        while (testing)
                         {
-                            if (UserUsername == human.Username && UserPassword == human.Password)
+                            Console.WriteLine("\n\nPlease long in with valid credentials, or create a new user.\nLogin in->");
+                            Console.Write("Username: ");
+                            string UserUsername = Console.ReadLine();
+                            Console.Write("Password: ");
+                            string UserPassword = Console.ReadLine();
+
+                            int AntalForsøg = 0;
+                            foreach (var human in lib.humans)
                             {
-                                IsTrue = false;
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                Console.Clear();
-                                Console.WriteLine("You have now sucesfully loged in!\n");
-                                Console.ForegroundColor = ConsoleColor.Gray;
-                                IsTrue2 = false;
-                                testing = false;
+
+                                AntalForsøg += 1;
+                                if (UserUsername == human.Username && UserPassword == human.Password)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.Clear();
+                                    Console.WriteLine("You have now sucesfully loged in!\nPress any key to continue!");
+                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                    Console.ReadKey();
+
+
+                                    IsTrue = false;
+                                    IsTrue2 = false;
+                                    testing = false;
+                                }
+                                else if (AntalForsøg >= lib.humans.Count)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("\nUsername and or password is incorrect!");
+                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                }
                             }
-                            //else
-                            //{
-                            //    Console.ForegroundColor = ConsoleColor.Red;
-                            //    Console.WriteLine("Username and or password is incorrect!");
-                            //    Console.ForegroundColor = ConsoleColor.Gray;
-                            //    Console.WriteLine("\n\nPlease long in with valid credentials, or create a new user.\nLogin in->");
-                            //    Console.Write("Username: ");
-                            //    UserUsername = Console.ReadLine();
-                            //    Console.Write("Password: ");
-                            //    UserPassword = Console.ReadLine();
-                            //}
                         }
-                        //if (testing = true)
-                        //{
-                        //    Console.WriteLine("Username and or password was incorrect! Please try again!");
-                        //}
                     }
                     else if (UsersChoice == "2")
                     {
@@ -98,6 +99,7 @@ namespace RentABook
                     }
                 }
                 //================================================================================After login
+                Console.Clear();
                 //=========================== Showing available books in library =====================<<>>
                 bool IsTrue1 = true;
                 string NoBooksAvailable = "";
@@ -125,6 +127,7 @@ namespace RentABook
                         Console.ForegroundColor = ConsoleColor.Gray;
                         break;
                     }
+
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Cyan;
@@ -136,14 +139,15 @@ namespace RentABook
                         {
                             if (book.bookRented == true)
                             {
-                                Console.WriteLine("Nr." + i + "\nName: |" + book.name + "|   Publish date: " + book.publishedDate + "/" + book.publishedmonth + "/" + book.publishedYear + "\n");
+                                Console.WriteLine("Number: " + i + "\nName: " + book.name + " | Publish date: " + book.publishedDate + "/" + book.publishedmonth + "/" + book.publishedYear + "\n");
                             }
                             i += 1;
 
                         }
                         //========================== available books shown ======================================
-
-                        Console.WriteLine("Now! What book would you like to rent? Write the number of the book you'd like to rent!");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("What book would you like to rent? Write the number of the book you'd like to rent!");
+                        Console.ForegroundColor = ConsoleColor.Gray;
                         int UserBookChoice = int.Parse(Console.ReadLine());
                         int ii = 1;
                         foreach (var book in lib.books)
