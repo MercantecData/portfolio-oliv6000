@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace RentABook
 {
     class Program
     {
+        public static string CurrentUser;
         static void Main(string[] args)
         {
+            //lib.WelcomMessageMenu(); //skal ud og stå i en klasse. Opret et objekt og kald dem fra objektet.
 
             Library lib = new Library();
             lib.AddHumanToList("Oliver", 2, "male", "oliv", "hey");
             lib.RegistredBooks();
 
-            //===================================================== Her 
+            //===================================================== Her starter koden
 
             bool IsTrue = true;
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -28,13 +31,17 @@ namespace RentABook
                 while (IsTrue2)
                 {
                     string UsersChoice = Console.ReadLine();
+                    Console.Clear();
                     if (UsersChoice == "1")
                     {
                         bool testing = true;
 
-                        while (testing)
+                        while (testing == true)
                         {
-                            Console.WriteLine("\n\nPlease long in with valid credentials, or create a new user.\nLogin in->");
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.WriteLine("Please long in with valid credentials\nLogin-->\n");
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                            Thread.Sleep(200);
                             Console.Write("Username: ");
                             string UserUsername = Console.ReadLine();
                             Console.Write("Password: ");
@@ -53,6 +60,7 @@ namespace RentABook
                                     Console.ForegroundColor = ConsoleColor.Gray;
                                     Console.ReadKey();
 
+                                    CurrentUser = human.name;
 
                                     IsTrue = false;
                                     IsTrue2 = false;
@@ -61,7 +69,7 @@ namespace RentABook
                                 else if (AntalForsøg >= lib.humans.Count)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine("\nUsername and or password is incorrect!");
+                                    Console.WriteLine("\nUsername and/or password is incorrect!\n");
                                     Console.ForegroundColor = ConsoleColor.Gray;
                                 }
                             }
@@ -69,8 +77,10 @@ namespace RentABook
                     }
                     else if (UsersChoice == "2")
                     {
-                        Console.WriteLine("\n\nPlease create a user, if you want to rent a book legally!");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("Before we get started, please tell me the following--->\n");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        Thread.Sleep(200);
                         Console.Write("Name: ");
                         string Name = Console.ReadLine();
 
@@ -90,8 +100,9 @@ namespace RentABook
                         Console.WriteLine(Name + "! Your account has now sucesfully been created! You can now log in, and rent a book legally\n\n");
                         Console.ForegroundColor = ConsoleColor.Gray;
 
-                        //Here i take the data from the users input and make it into a new user
+                        //Here i take the data from the users input and create a new user with it
                         lib.SignUp(Name, Age, Gender, Username, Password);
+                        Console.WriteLine("What would you like to do next?\n1. Log in\n2. Sign up\n");
                     }
                     else if (UsersChoice == "")
                     {
@@ -116,13 +127,13 @@ namespace RentABook
 
                         if (AvailableBook >= lib.books.Count)
                         {
-                            NoBooksAvailable = "There is currently no books available";
+                            NoBooksAvailable = "There is currently no books available! Loggin you out!";
                         }
                     }
 
                     if (AvailableBook >= lib.books.Count)
                     {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine(NoBooksAvailable);
                         Console.ForegroundColor = ConsoleColor.Gray;
                         break;
@@ -131,7 +142,7 @@ namespace RentABook
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("Hey there! Here are all the books available\n");
+                        Console.WriteLine("Hey there " +CurrentUser+"! Here are all the books available at the moment\n");
                         Console.ForegroundColor = ConsoleColor.Gray;
 
                         int i = 0;
@@ -185,12 +196,6 @@ namespace RentABook
                             ii += 1;
                         }
                     }
-
-
-                    //lib.WelcomMessageMenu(); //skal ud og stå i en klasse. Opret et objekt og kald dem fra objektet.
-
-
-
                 }
             }
         }

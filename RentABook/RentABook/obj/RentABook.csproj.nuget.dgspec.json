@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "W:\\ASkoleArbejde\\portfolio-oliv6000\\RentABook\\RentABook\\RentABook.csproj": {}
+    "C:\\ASkoleOpgaver\\ASkoleArbejde\\RentABook\\RentABook\\RentABook.csproj": {}
   },
   "projects": {
-    "W:\\ASkoleArbejde\\portfolio-oliv6000\\RentABook\\RentABook\\RentABook.csproj": {
+    "C:\\ASkoleOpgaver\\ASkoleArbejde\\RentABook\\RentABook\\RentABook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\ASkoleArbejde\\portfolio-oliv6000\\RentABook\\RentABook\\RentABook.csproj",
+        "projectUniqueName": "C:\\ASkoleOpgaver\\ASkoleArbejde\\RentABook\\RentABook\\RentABook.csproj",
         "projectName": "RentABook",
-        "projectPath": "W:\\ASkoleArbejde\\portfolio-oliv6000\\RentABook\\RentABook\\RentABook.csproj",
-        "packagesPath": "C:\\Users\\olive\\.nuget\\packages\\",
-        "outputPath": "W:\\ASkoleArbejde\\portfolio-oliv6000\\RentABook\\RentABook\\obj\\",
+        "projectPath": "C:\\ASkoleOpgaver\\ASkoleArbejde\\RentABook\\RentABook\\RentABook.csproj",
+        "packagesPath": "C:\\Users\\OIOl.skp\\.nuget\\packages\\",
+        "outputPath": "C:\\ASkoleOpgaver\\ASkoleArbejde\\RentABook\\RentABook\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\olive\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\OIOl.skp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
