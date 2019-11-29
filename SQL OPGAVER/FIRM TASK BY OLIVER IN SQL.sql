@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 28. 11 2019 kl. 13:51:05
+-- Genereringstid: 29. 11 2019 kl. 11:55:38
 -- Serverversion: 10.4.8-MariaDB
 -- PHP-version: 7.3.11
 
@@ -21,6 +21,36 @@ SET time_zone = "+00:00";
 --
 -- Database: `linuxuslesstechtips`
 --
+
+DELIMITER $$
+--
+-- Procedurer
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DeleteChosenEmployee` (IN `DeleteUserID` INT(11))  BEGIN
+	DELETE FROM employees WHERE employee_ID = DeleteUserID;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetSpecifikEmployeeSalary` (IN `employeeSalary` INT(11))  BEGIN
+
+	SELECT employees.*, salaries.salary_Amount
+	FROM employees
+	INNER JOIN salaries
+	ON employees.employee_ID = salaries.employee_ID
+	WHERE employees.employee_ID = employeeSalary;
+
+END$$
+
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in-struktur for visning `allemployees`
+-- (Se nedenfor for det aktuelle view)
+--
+CREATE TABLE `allemployees` (
+`employee_Firstname` varchar(255)
+);
 
 -- --------------------------------------------------------
 
@@ -51,8 +81,8 @@ INSERT INTO `departments` (`dep_Name`, `dep_ID`) VALUES
 --
 
 CREATE TABLE `dep_employee` (
-  `dep_Name` varchar(255) DEFAULT NULL,
-  `dep_employee_ID` int(11) DEFAULT NULL
+  `dep_ID` int(255) NOT NULL,
+  `employee_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -62,8 +92,8 @@ CREATE TABLE `dep_employee` (
 --
 
 CREATE TABLE `dep_manager` (
-  `managing_Department` varchar(255) DEFAULT NULL,
-  `dep_employee_ID` int(11) DEFAULT NULL
+  `dep_Name` varchar(255) NOT NULL,
+  `employee_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -87,9 +117,22 @@ INSERT INTO `employees` (`employee_ID`, `employee_Firstname`, `employee_Lastname
 (1, 'Oliver', 'Olesen', 'oliver.ian.o@hotmail.com'),
 (2, 'Kasper', 'Hansen', 'KasperHansen@hotmail.com'),
 (3, 'Jhon', 'Sørensen', 'JhonSørensen@hotmail.com'),
-(4, 'Bob', 'Poulsen', 'BobPoulsen@hotmail.com'),
 (5, 'Poul', 'Andersen', 'PoulAndersen@hotmail.com'),
 (6, 'Anders', 'Ludvigsen', 'AndersLudvigsen@hotmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in-struktur for visning `employee_id2salary`
+-- (Se nedenfor for det aktuelle view)
+--
+CREATE TABLE `employee_id2salary` (
+`employee_ID` int(11)
+,`employee_Firstname` varchar(255)
+,`employee_Lastname` varchar(255)
+,`employee_Email` varchar(255)
+,`salary_Amount` int(11)
+);
 
 -- --------------------------------------------------------
 
@@ -98,19 +141,18 @@ INSERT INTO `employees` (`employee_ID`, `employee_Firstname`, `employee_Lastname
 --
 
 CREATE TABLE `salaries` (
-  `salary_Amount` int(11) DEFAULT NULL,
-  `salary_employee_ID` int(11) DEFAULT NULL
+  `salary_Amount` int(11) NOT NULL,
+  `employee_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Data dump for tabellen `salaries`
 --
 
-INSERT INTO `salaries` (`salary_Amount`, `salary_employee_ID`) VALUES
+INSERT INTO `salaries` (`salary_Amount`, `employee_ID`) VALUES
 (8000, 1),
 (9000, 2),
 (2000, 3),
-(3000, 4),
 (85000, 5),
 (2000, 6);
 
@@ -121,21 +163,38 @@ INSERT INTO `salaries` (`salary_Amount`, `salary_employee_ID`) VALUES
 --
 
 CREATE TABLE `titles` (
-  `Title_Name` varchar(255) DEFAULT NULL,
-  `title_Employee_ID` int(11) DEFAULT NULL
+  `Title_Name` varchar(255) NOT NULL,
+  `employee_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Data dump for tabellen `titles`
 --
 
-INSERT INTO `titles` (`Title_Name`, `title_Employee_ID`) VALUES
+INSERT INTO `titles` (`Title_Name`, `employee_ID`) VALUES
 ('Employee', 1),
 ('Employee', 2),
 ('Employee', 3),
-('Administrator', 4),
 ('manager', 5),
 ('CEO', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur for visning `allemployees`
+--
+DROP TABLE IF EXISTS `allemployees`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `allemployees`  AS  select `employees`.`employee_Firstname` AS `employee_Firstname` from `employees` ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur for visning `employee_id2salary`
+--
+DROP TABLE IF EXISTS `employee_id2salary`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employee_id2salary`  AS  select `employees`.`employee_ID` AS `employee_ID`,`employees`.`employee_Firstname` AS `employee_Firstname`,`employees`.`employee_Lastname` AS `employee_Lastname`,`employees`.`employee_Email` AS `employee_Email`,`salaries`.`salary_Amount` AS `salary_Amount` from (`employees` join `salaries` on(`employees`.`employee_ID` = `salaries`.`employee_ID`)) where `employees`.`employee_ID` = 2 ;
 
 --
 -- Begrænsninger for dumpede tabeller
@@ -145,21 +204,20 @@ INSERT INTO `titles` (`Title_Name`, `title_Employee_ID`) VALUES
 -- Indeks for tabel `departments`
 --
 ALTER TABLE `departments`
-  ADD PRIMARY KEY (`dep_Name`),
-  ADD UNIQUE KEY `dep_ID` (`dep_ID`);
+  ADD PRIMARY KEY (`dep_ID`);
 
 --
 -- Indeks for tabel `dep_employee`
 --
 ALTER TABLE `dep_employee`
-  ADD KEY `dep_employee_ID` (`dep_employee_ID`),
-  ADD KEY `dep_Name` (`dep_Name`);
+  ADD KEY `employee_ID` (`employee_ID`),
+  ADD KEY `dep_ID` (`dep_ID`);
 
 --
 -- Indeks for tabel `dep_manager`
 --
 ALTER TABLE `dep_manager`
-  ADD KEY `dep_employee_ID` (`dep_employee_ID`);
+  ADD KEY `employee_ID` (`employee_ID`);
 
 --
 -- Indeks for tabel `employees`
@@ -171,13 +229,13 @@ ALTER TABLE `employees`
 -- Indeks for tabel `salaries`
 --
 ALTER TABLE `salaries`
-  ADD KEY `salary_employee_ID` (`salary_employee_ID`);
+  ADD KEY `employee_ID` (`employee_ID`);
 
 --
 -- Indeks for tabel `titles`
 --
 ALTER TABLE `titles`
-  ADD KEY `title_Employee_ID` (`title_Employee_ID`);
+  ADD KEY `employee_ID` (`employee_ID`);
 
 --
 -- Brug ikke AUTO_INCREMENT for slettede tabeller
@@ -203,26 +261,26 @@ ALTER TABLE `employees`
 -- Begrænsninger for tabel `dep_employee`
 --
 ALTER TABLE `dep_employee`
-  ADD CONSTRAINT `dep_employee_ibfk_1` FOREIGN KEY (`dep_employee_ID`) REFERENCES `employees` (`employee_ID`),
-  ADD CONSTRAINT `dep_employee_ibfk_2` FOREIGN KEY (`dep_Name`) REFERENCES `departments` (`dep_Name`);
+  ADD CONSTRAINT `dep_employee_ibfk_1` FOREIGN KEY (`employee_ID`) REFERENCES `employees` (`employee_ID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `dep_employee_ibfk_2` FOREIGN KEY (`dep_ID`) REFERENCES `departments` (`dep_ID`);
 
 --
 -- Begrænsninger for tabel `dep_manager`
 --
 ALTER TABLE `dep_manager`
-  ADD CONSTRAINT `dep_manager_ibfk_1` FOREIGN KEY (`dep_employee_ID`) REFERENCES `employees` (`employee_ID`);
+  ADD CONSTRAINT `dep_manager_ibfk_1` FOREIGN KEY (`employee_ID`) REFERENCES `employees` (`employee_ID`) ON DELETE CASCADE;
 
 --
 -- Begrænsninger for tabel `salaries`
 --
 ALTER TABLE `salaries`
-  ADD CONSTRAINT `salaries_ibfk_1` FOREIGN KEY (`salary_employee_ID`) REFERENCES `employees` (`employee_ID`);
+  ADD CONSTRAINT `salaries_ibfk_1` FOREIGN KEY (`employee_ID`) REFERENCES `employees` (`employee_ID`) ON DELETE CASCADE;
 
 --
 -- Begrænsninger for tabel `titles`
 --
 ALTER TABLE `titles`
-  ADD CONSTRAINT `titles_ibfk_1` FOREIGN KEY (`title_Employee_ID`) REFERENCES `employees` (`employee_ID`);
+  ADD CONSTRAINT `titles_ibfk_1` FOREIGN KEY (`employee_ID`) REFERENCES `employees` (`employee_ID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

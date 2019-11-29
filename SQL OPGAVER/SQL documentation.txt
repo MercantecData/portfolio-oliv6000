@@ -1,0 +1,139 @@
+CREATE DATABASE linuxuslesstechtips
+
+======== Creating departments ===============
+CREATE TABLE departments (
+dep_Name varchar(255) NOT NULL,
+dep_ID int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+);
+=====================================
+
+======== Creating employees ===============
+CREATE TABLE Employee (
+employee_ID int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+employee_Firstname varchar(255) NOT NULL,
+employee_Lastname varchar(255) NOT NULL,
+
+employee_Email varchar(255) NOT NULL
+);
+====================================
+
+======== Creating Titles ===============
+CREATE TABLE Titles (
+salary_Amount int(11) NOT NULL,
+
+employee_ID int(11) NOT NULL,
+
+FOREIGN KEY (employee_ID) REFERENCES employees(employee_ID) ON DELETE CASCADE
+);
+===================================
+
+======== Creating Dep_Employee ===============
+
+DROP TABLE IF EXISTS Titles;
+CREATE TABLE dep_employee (
+dep_ID int(255) NOT NULL,
+employee_ID int(11) NOT NULL,
+
+FOREIGN KEY (employee_ID) REFERENCES employees(employee_ID) ON DELETE CASCADE,
+FOREIGN KEY (dep_ID) REFERENCES departments(dep_ID)
+);
+========================================
+
+======== Creating Dep_Manager ===============
+CREATE TABLE Dep_Manager (
+dep_Name varchar(255) NOT NULL,
+employee_ID int(11) NOT NULL,
+
+FOREIGN KEY (employee_ID) REFERENCES employees(employee_ID) ON DELETE CASCADE
+);
+=======================================
+
+======== Creating Salaries ===============
+CREATE TABLE Salaries (
+dep_Name varchar(255) NOT NULL,
+employee_ID int(11) NOT NULL,
+
+FOREIGN KEY (employee_ID) REFERENCES employees(employee_ID) ON DELETE CASCADE
+);
+==================================
+
+===========Inserting data into employee ================
+INSERT INTO employees(employee_ID, employee_Firstname, employee_Lastname, employee_Email) VALUES
+(1, 'Oliver', 'Olesen', 'oliver.ian.o@hotmail.com'),
+(2, 'Kasper', 'Hansen', 'KasperHansen@hotmail.com'),
+(3, 'Jhon', 'Sørensen', 'JhonSørensen@hotmail.com'),
+(4, 'Bob', 'Poulsen', 'BobPoulsen@hotmail.com'),
+(5, 'Poul', 'Andersen', 'PoulAndersen@hotmail.com'),
+(6, 'Anders', 'Ludvigsen', 'AndersLudvigsen@hotmail.com');
+==============================================
+
+===========Inserting data into departments ================
+INSERT INTO departments(dep_Name, dep_ID) VALUES
+('Cleaning', 1),
+('Storage', 2),
+('Backupping', 3),
+('Managing', 4),
+('Administering', 5);
+================================================ 
+
+===========Inserting data into salaries ================
+INSERT INTO salaries(salary_Amount, employee_ID) VALUES
+(8000, 1),
+(9000, 2),
+(2000, 3),
+(3000, 4),
+(85000, 5),
+(2000, 6);
+============================================
+
+===========Inserting data into Titles ================
+INSERT INTO Titles(Title_Name, employee_ID) VALUES
+('Employee', 1),
+('Employee', 2),
+('Employee', 3),
+('Administrator', 4),
+('manager', 5),
+('CEO', 6);
+======================================================
+
+=========== Creating a procedure that can delete a specifik employee COMPLETLY ================
+DELIMITER //
+
+CREATE PROCEDURE DeleteChosenEmployee(IN DeleteUserID INT(11))
+BEGIN
+	DELETE FROM employees WHERE employee_ID = DeleteUserID;
+END //
+DELIMITER ;
+===============================================================================================
+
+============= Creating a procedure that can get salary of any chosen employee with chosen ID ========
+DELIMITER //
+
+CREATE PROCEDURE GetSpecifikEmployeeSalary(IN employeeSalary INT(11))
+BEGIN
+
+	SELECT employees.*, salaries.salary_Amount
+	FROM employees
+	INNER JOIN salaries
+	ON employees.employee_ID = salaries.employee_ID
+	WHERE employees.employee_ID = employeeSalary;
+
+END //
+DELIMITER ;
+=====================================================================================================
+
+================ Creating a view to see all employees ==============
+CREATE VIEW AllEmployees AS
+SELECT employee_Firstname
+FROM employees;
+====================================================================
+
+================ Creating Inner join to view employee_ID(2)'s salary ============
+CREATE VIEW employee_ID2Salary AS
+SELECT employees.*, salaries.salary_Amount
+FROM employees
+INNER JOIN salaries
+ON employees.employee_ID = salaries.employee_ID
+WHERE employees.employee_ID = 2;
+==================================================================================
