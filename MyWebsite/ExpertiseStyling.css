@@ -2,14 +2,7 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 /* All the code above, is just resetting all the default css styling */
 
 /* All styling for the navigationbar */
-
-body
-{
-    background-image: url('Nature.jpg') ;
-    background-size: auto;
-}
-
-ul.Navigationbar-Home 
+ul.Navigationsbar
 {
     list-style-type: none;
     margin: 0;
@@ -18,17 +11,17 @@ ul.Navigationbar-Home
     background-color: #333;
 }
   
-li.Navigationbar-Home
+li.Navigationsbar
 {
     float: left;
 }
 
-li.Navigationbar-Home:Hover
+li.Navigationsbar:Hover
 {
     background-color: Orange;
 }
 
-li a.Navigationbar-Home
+li a.Navigationsbar
 {
     display: block;
     color: white;
@@ -39,7 +32,7 @@ li a.Navigationbar-Home
 /* Navigationbar styling done */
 
 /* General page styling */
-h1.HomepageHeader
+h1.Header
 {
     margin-top: 10px; margin-left: 10px;
 
@@ -50,70 +43,55 @@ h1.HomepageHeader
     font-family: "Times New Roman", Times, Georgia, serif;
 }
 
-p.HomepageMainText
+p.MainText
 {
     margin-top: 10px; margin-left: 10px;
 }
 
-p.HomepageSidebar
+p.Sidebar
 {
     margin-top: 10px; margin-left: 10px;
 }
 
-p.HomepageFooter
+p.Footer
 {
     margin-top: 10px; margin-left: 10px;
-}
-
-img.Nature
-{
-    
-    width: 100%;
 }
 /* General page styling done */
 
 /* Grid and grid items styling */
-.HomepageGridContainer 
+.GridContainer 
 {
     display: grid;
-    /* padding: 10px; */
-    grid-template-columns: 100%;
-    grid-template-rows: auto;
-    
-    /* grid-template-rows: 20px; */
+    padding: 10px;
+    grid-template-columns: 200px auto;
+    grid-template-rows: 6vh 75vh 10vh;
 
-    /* grid-template-areas: "Sidebar Header" "Sidebar MainText" "Footer Footer"; */
-    grid-template-areas: "Image Image";
+    grid-template-areas: "Sidebar Header" "Sidebar MainText" "Footer Footer";
 }
 
-.Nature
-{
-    grid-area: Image;  
-    max-height: 93.934vh;
-}
-
-.HomepageHeader
+.Header
 {
     background-color: blue;
 
     grid-area: Header;
 }
 
-.HomepageSidebar
+.Sidebar
 {
     background-color: lightblue;
 
     grid-area: Sidebar;
 }
 
-.HomepageMainText
+.MainText
 {
     background-color: green;
     
     grid-area: MainText;
 }
 
-.HomepageFooter{
+.Footer{
     background-color: yellow; 
 
     grid-area: Footer;
