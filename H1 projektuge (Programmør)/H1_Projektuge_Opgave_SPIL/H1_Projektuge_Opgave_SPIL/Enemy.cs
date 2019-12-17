@@ -9,10 +9,10 @@ namespace H1_Projektuge_Opgave_SPIL
         public string name;
         public int default_Damage;
         public int damage;
-        public int default_Health;
-        public int health;
-        public int armor;
-        public int experience_Amount;
+        public double default_Health;
+        public double health;
+        public double armor;
+        public double exp;
 
         public Enemy()
         {
@@ -20,42 +20,88 @@ namespace H1_Projektuge_Opgave_SPIL
         }
 
 
-        public void creating_Enemy()
+        public void create_Enemy(Player player)
         {
-            switch (name)
-            {
-                case "Dasher":
-                    default_Damage = 3;
-                    break;
-                case "Dancer":
-                    default_Damage = 23123;
-                    break;
-                case "Prancer":
-                    default_Damage = 2;
-                    break;
-                case "Vixen":
-                    default_Damage = 2;
-                    break;
-                case "Comet":
-                    default_Damage = 2;
-                    break;
-                case "Cupid":
-                    default_Damage = 2;
-                    break;
-                case "Donner":
-                    default_Damage = 2;
-                    break;
-                case "Blitzen":
-                    default_Damage = 2;
-                    break;
+            Random gettningRandomNumber = new Random();
+            int randomEnemy = gettningRandomNumber.Next(1, 8);
 
+            switch (randomEnemy)
+            {
+                case 1:
+                    name = "Dasher";
+                    default_Damage = 3;
+                    default_Health = 20;
+                    armor = 7 * (player.level * 0.43);
+                    health = default_Health * (player.level * 0.68);
+                    damage = default_Damage * player.level;
+                    exp = 10 * (player.level * 1.6);
+                    break;
+                case 2:
+                    name = "Dancer";
+                    default_Damage = 4;
+                    default_Health = 30;
+                    armor = 7 * (player.level * 0.43);
+                    health = default_Health * (player.level * 0.68);
+                    damage = default_Damage * player.level;
+                    exp = 10 * (player.level * 1.6);
+                    break;
+                case 3:
+                    name = "Prancer";
+                    default_Damage = 8;
+                    default_Health = 15;
+                    armor = 7 * (player.level * 0.43);
+                    health = default_Health * (player.level * 0.68);
+                    damage = default_Damage * player.level;
+                    exp = 10 * (player.level * 1.4);
+                    break;
+                case 4:
+                    name = "Vixen";
+                    default_Damage = 7;
+                    default_Health = 25;
+                    health = default_Health * (player.level * 0.68);
+                    damage = default_Damage * player.level;
+                    exp = 10 * (player.level * 1.8);
+                    break;
+                case 5:
+                    name = "Comet";
+                    default_Damage = 9;
+                    default_Health = 10;
+                    armor = 7 * (player.level * 0.43);
+                    health = default_Health * (player.level * 0.68);
+                    damage = default_Damage * player.level;
+                    exp = 10 * (player.level * 1.5);
+                    break;
+                case 6:
+                    name = "Cupid";
+                    default_Damage = 3;
+                    default_Health = 50;
+                    armor = 7 * (player.level * 0.43);
+                    health = default_Health * (player.level * 0.68);
+                    damage = default_Damage * player.level;
+                    exp = 10 * (player.level * 1.7);
+                    break;
+                case 7:
+                    name = "Donner";
+                    default_Damage = 2;
+                    default_Health = 70;
+                    armor = 7 * (player.level * 0.43);
+                    health = default_Health * (player.level * 0.68);
+                    damage = default_Damage * player.level;
+                    exp = 10 * (player.level * 2);
+                    break;
+                case 8:
+                    name = "Blitzen";
+                    default_Damage = 6;
+                    default_Health = 30;
+                    armor = 7 * (player.level * 0.43);
+                    health = default_Health * (player.level * 0.68);
+                    damage = default_Damage * player.level;
+                    exp = 10 * (player.level * 1.9);
+                    break;
                 default:
+                    Console.WriteLine("There is sadly no enemy to spawn D:");
                     break;
             }
-
-
-
         }
-
     }
 }
