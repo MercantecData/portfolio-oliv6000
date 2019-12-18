@@ -8,16 +8,24 @@ namespace H1_Projektuge_Opgave_SPIL
         public static int fucktard = 0;
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("SANTA GONE ROUGE!\n\n");
+            Console.WriteLine("\n███████╗ █████╗ ███╗   ██╗████████╗ █████╗      ██████╗  ██████╗ ███╗   ██╗███████╗    ██████╗  ██████╗ ██╗   ██╗ ██████╗ ███████╗");
+            Console.WriteLine("██╔════╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗    ██╔════╝ ██╔═══██╗████╗  ██║██╔════╝    ██╔══██╗██╔═══██╗██║   ██║██╔════╝ ██╔════╝");
+            Console.WriteLine("███████╗███████║██╔██╗ ██║   ██║   ███████║    ██║  ███╗██║   ██║██╔██╗ ██║█████╗      ██████╔╝██║   ██║██║   ██║██║  ███╗█████╗  ");
+            Console.WriteLine("╚════██║██╔══██║██║╚██╗██║   ██║   ██╔══██║    ██║   ██║██║   ██║██║╚██╗██║██╔══╝      ██╔══██╗██║   ██║██║   ██║██║   ██║██╔══╝  ");
+            Console.WriteLine("███████║██║  ██║██║ ╚████║   ██║   ██║  ██║    ╚██████╔╝╚██████╔╝██║ ╚████║███████╗    ██║  ██║╚██████╔╝╚██████╔╝╚██████╔╝███████╗");
+            Console.WriteLine("╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝     ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝    ╚═╝  ╚═╝ ╚═════╝  ╚═════╝  ╚═════╝ ╚══════╝\n\n");
             Console.ForegroundColor = ConsoleColor.Gray;
             game_Menue();
         }
 
         public static void game_Menue()
         {
-            Console.WriteLine("What would you like to do?\nWrite the number of the activity you'd like to do!\n1. Play!\n2. Quit!\n");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("What would you like to do?");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            Console.WriteLine("Write the number of the activity you'd like to do!\n1. Play!\n2. Quit!\n");
             string users_Choice = Console.ReadLine();
 
             bool isRunning = true;
