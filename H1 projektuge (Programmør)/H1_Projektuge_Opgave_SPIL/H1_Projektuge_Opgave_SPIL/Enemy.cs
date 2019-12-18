@@ -13,6 +13,7 @@ namespace H1_Projektuge_Opgave_SPIL
         public double health;
         public double armor;
         public double exp;
+        private double default_Exp = 100;
 
         public Enemy()
         {
@@ -34,7 +35,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     armor = 7 * (player.level * 0.43);
                     health = default_Health * (player.level * 0.68);
                     damage = default_Damage * player.level;
-                    exp = 10 * (player.level * 1.6);
+                    exp = default_Exp * (player.level * 1.6);
                     break;
                 case 2:
                     name = "Dancer";
@@ -43,7 +44,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     armor = 7 * (player.level * 0.43);
                     health = default_Health * (player.level * 0.68);
                     damage = default_Damage * player.level;
-                    exp = 10 * (player.level * 1.6);
+                    exp = default_Exp * (player.level * 1.6);
                     break;
                 case 3:
                     name = "Prancer";
@@ -52,7 +53,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     armor = 7 * (player.level * 0.43);
                     health = default_Health * (player.level * 0.68);
                     damage = default_Damage * player.level;
-                    exp = 10 * (player.level * 1.4);
+                    exp = default_Exp * (player.level * 1.4);
                     break;
                 case 4:
                     name = "Vixen";
@@ -60,7 +61,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     default_Health = 25;
                     health = default_Health * (player.level * 0.68);
                     damage = default_Damage * player.level;
-                    exp = 10 * (player.level * 1.8);
+                    exp = default_Exp * (player.level * 1.8);
                     break;
                 case 5:
                     name = "Comet";
@@ -69,7 +70,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     armor = 7 * (player.level * 0.43);
                     health = default_Health * (player.level * 0.68);
                     damage = default_Damage * player.level;
-                    exp = 10 * (player.level * 1.5);
+                    exp = default_Exp * (player.level * 1.5);
                     break;
                 case 6:
                     name = "Cupid";
@@ -78,7 +79,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     armor = 7 * (player.level * 0.43);
                     health = default_Health * (player.level * 0.68);
                     damage = default_Damage * player.level;
-                    exp = 10 * (player.level * 1.7);
+                    exp = default_Exp * (player.level * 1.7);
                     break;
                 case 7:
                     name = "Donner";
@@ -87,7 +88,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     armor = 7 * (player.level * 0.43);
                     health = default_Health * (player.level * 0.68);
                     damage = default_Damage * player.level;
-                    exp = 10 * (player.level * 2);
+                    exp = default_Exp * (player.level * 2);
                     break;
                 case 8:
                     name = "Blitzen";
@@ -96,7 +97,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     armor = 7 * (player.level * 0.43);
                     health = default_Health * (player.level * 0.68);
                     damage = default_Damage * player.level;
-                    exp = 10 * (player.level * 1.9);
+                    exp = default_Exp * (player.level * 1.9);
                     break;
                 default:
                     Console.WriteLine("There is sadly no enemy to spawn D:");

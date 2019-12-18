@@ -8,6 +8,7 @@ namespace H1_Projektuge_Opgave_SPIL
     {
         public string name;
         public int level;
+        public double exp;
         private int default_Damage;
         public int damage;
         private double default_Health;
@@ -23,7 +24,8 @@ namespace H1_Projektuge_Opgave_SPIL
         public Player(string name)
         {
             this.name = name;
-            level = 2;
+            level = 1;
+            exp = 0;
             default_Damage = 10;
             default_Health = 30;
             default_energy = 100;
