@@ -20,6 +20,7 @@ namespace H1_Projektuge_Opgave_SPIL
         private int default_Evasiveness;
         public int evasiveness;
         public int critical_Chance;
+        public string equiped_Equipment;
 
         public Player(string name)
         {
@@ -33,18 +34,20 @@ namespace H1_Projektuge_Opgave_SPIL
             default_Evasiveness = 0;
         }
 
-        public void player_Startup_Stats()
+        public void startup_Stats()
         {
             Console.WriteLine("Level: " + level);
-            Console.WriteLine("Health: " + health);
-            Console.WriteLine("Damage: " + damage);
-            Console.WriteLine("Evasiveness: " + evasiveness);
+            Console.WriteLine("Health: " + default_Health);
+            Console.WriteLine("Damage: " + default_Damage);
+            Console.WriteLine("Armor: " + default_Armor);
+            Console.WriteLine("Evasiveness: " + default_Evasiveness);
             Console.WriteLine("======================================");
         }
 
-        public void set_Player_Stats()
+        public void update_Stats(Equipment equipment)
         {
-            health = default_Health * (level * 0.85);
+            equiped_Equipment = equipment.name;
+            health = equipment.health_Buff + (default_Health * (level * 0.85));
             damage = default_Damage * level;
         }
 

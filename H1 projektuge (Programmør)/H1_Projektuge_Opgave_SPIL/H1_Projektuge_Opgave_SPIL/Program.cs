@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace H1_Projektuge_Opgave_SPIL
 {
     class Program
     {
+        static List<Equipment> equipment = new List<Equipment>();
         public static int fucktard = 0;
         static void Main(string[] args)
         {
@@ -19,6 +21,151 @@ namespace H1_Projektuge_Opgave_SPIL
             game_Menue();
         }
 
+        public static void creating_Equipment()
+        {
+            //============================ Removing nr 0 in array =================================
+            equipment.Add(new Equipment("0", "0", 0, 0, 0,0));
+            //=====================================================================================
+
+            //============================ Chestplate =============================================
+            equipment.Add(new Equipment("Chestplate", "It's fuuckinn tough", 30.5, 25, 20, 2200));
+            equipment.Add(new Equipment("Chestplate", "It's fuuckinn weak", 10.5, 5, 1, 600));
+            equipment.Add(new Equipment("Chestplate", "It's fuuckinn massive", 50.5, 15, 0, 2500));
+            equipment.Add(new Equipment("Chestplate", "It's fuuckinn decent", 25.5, 20, 15, 2000));
+            //=====================================================================================
+
+            //============================ Leggins ================================================
+            equipment.Add(new Equipment("Leggins", "It's fuuckinn tough", 30.5, 25, 20, 2200));
+            equipment.Add(new Equipment("Leggins", "It's fuuckinn weak", 10.5, 5, 1, 600));
+            equipment.Add(new Equipment("Leggins", "It's fuuckinn massive", 50.5, 15, 0, 2500));
+            equipment.Add(new Equipment("Leggins", "It's fuuckinn decent", 25.5, 20, 15, 2000));
+            //=====================================================================================
+
+            //============================ Helmet =================================================
+            equipment.Add(new Equipment("Helmet", "It's fuuckinn tough", 30.5, 25, 20, 2200));
+            equipment.Add(new Equipment("Helmet", "It's fuuckinn weak", 10.5, 5, 1, 600));
+            equipment.Add(new Equipment("Helmet", "It's fuuckinn massive", 50.5, 15, 0, 2500));
+            equipment.Add(new Equipment("Helmet", "It's fuuckinn decent", 25.5, 20, 15, 2000));
+            //=====================================================================================
+
+            //============================ Boots ==================================================
+            equipment.Add(new Equipment("Boots", "It's fuuckinn tough", 30.5, 25, 20, 2200));
+            equipment.Add(new Equipment("Boots", "It's fuuckinn weak", 10.5, 5, 1, 600));
+            equipment.Add(new Equipment("Boots", "It's fuuckinn massive", 50.5, 15, 0, 2500));
+            equipment.Add(new Equipment("Boots", "It's fuuckinn decent", 25.5, 20, 15, 2000));
+            //=====================================================================================
+
+        }
+        public static void chest_Encounter(Player player)
+        {
+            creating_Equipment();
+
+            Console.WriteLine("\n==================================");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Press a key to open the chest!");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("awaiting keypress...");
+            Console.ReadKey();
+
+            Random random = new Random();
+            int random_Equipment = random.Next(1, 17);
+            int random_Weapon = random.Next(1, 17);
+
+            int equipment_Or_Weapon = random.Next(1, 3);
+            if (equipment_Or_Weapon == 1)
+            {
+                if (equipment[random_Equipment].name == "Chestplate" || equipment[random_Equipment].name == "Helmet")
+                {
+                    Console.WriteLine("\n1You found a " + equipment[random_Equipment].name);
+                }
+                else
+                {
+                    Console.WriteLine("\n1You found " + equipment[random_Equipment].name);
+                }
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\nWhat would you like to with it?");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("Write the number of the action you'd like to do!");
+                
+                bool isRunning = true;
+
+                while (isRunning)
+                {
+                    Console.WriteLine("1. inspect\n2. equip\n3. Throw away");
+                    string user_Choice = Console.ReadLine();
+
+                    if (user_Choice == "1")
+                    {
+                        isRunning = false;
+                        Console.WriteLine("\nThe item's stats are as follows---->");
+                        inspect(equipment[random_Equipment], player);
+                    }
+                    else if (user_Choice == "2")
+                    {
+                        isRunning = false;
+                        equipment_Equip(player, equipment[random_Equipment]);
+
+                    }
+                    else if (user_Choice == "3")
+                    {
+                        isRunning = false;
+                        Console.WriteLine("\nYou throw the equipment away!");
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("\nplease choose one of the following!");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                    }
+                }
+
+            }
+            else if (equipment_Or_Weapon == 2)
+            {
+                //Console.WriteLine("\n2You found--->\nName: " + Weapon[random_Weapon].name);
+                if (equipment[random_Equipment].name == "Chestplate" || equipment[random_Equipment].name == "Helmet")
+                {
+                    Console.WriteLine("\n2You found a " + equipment[random_Equipment].name);
+                }
+                else
+                {
+                    Console.WriteLine("\n2You found " + equipment[random_Equipment].name);
+                }
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write("\nWhat would you like to with the: ");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.ReadKey();
+            }
+
+        }
+        public static void inspect(Equipment equipment, Player player)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("==================================");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("describtion: " + equipment.description + "\nHealth buff:" + equipment.health_Buff + "\nArmor buff: " + equipment.armor_Buff + "\nevasiveness buff: " + equipment.evasiveness_Buff);
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("==================================");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            Console.WriteLine("\nWhat do you want to do now?\n1. equip\n2. throw away");
+            string user_Choice = Console.ReadLine();
+
+            if (user_Choice == "1" || user_Choice == "equip")
+            {
+                equipment_Equip(player, equipment);
+            }
+            else if (user_Choice == "2" || user_Choice == "throw away")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nThrowing away the " + equipment.name + "!");
+                Console.ForegroundColor = ConsoleColor.Gray;
+            }
+            Console.Write("Now! ");
+        }
         public static void game_Menue()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -73,9 +220,17 @@ namespace H1_Projektuge_Opgave_SPIL
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("These are your current stats!\n");
             Console.ForegroundColor = ConsoleColor.Gray;
-            player.set_Player_Stats();
-            player.player_Startup_Stats();
+            player.startup_Stats();
             navigation(enemy, player);
+        }
+        public static void equipment_Equip(Player player, Equipment equipment)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("\nEquipping the ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(equipment.name);
+            Console.ReadKey();
+            player.update_Stats(equipment);
         }
         public static void navigation(Enemy enemy, Player player)
         {
@@ -96,6 +251,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     Console.WriteLine("You start walking towards north!\n");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     encounter(enemy, player);
+                    navigation(enemy, player);
                     break;
 
                 case "east":
@@ -104,6 +260,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     Console.WriteLine("You start walking towards east!\n");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     encounter(enemy, player);
+                    navigation(enemy, player);
                     break;
 
                 case "south":
@@ -112,6 +269,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     Console.WriteLine("You start walking towards south!\n");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     encounter(enemy, player);
+                    navigation(enemy, player);
                     break;
 
                 case "west":
@@ -120,6 +278,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     Console.WriteLine("You start walking towards west!\n");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     encounter(enemy, player);
+                    navigation(enemy, player);
                     break;
 
                 default:
@@ -143,7 +302,8 @@ namespace H1_Projektuge_Opgave_SPIL
                     Console.WriteLine("You encounter a merchant!");
                     Console.ForegroundColor = ConsoleColor.Gray;
 
-                    combat(enemy, player);
+                    //combat(enemy, player);
+                    chest_Encounter(player);
                     break;
 
                 case 2:
@@ -151,7 +311,8 @@ namespace H1_Projektuge_Opgave_SPIL
                     Console.WriteLine("You find a chest!");
                     Console.ForegroundColor = ConsoleColor.Gray;
 
-                    combat(enemy, player);
+                    chest_Encounter(player);
+                    //combat(enemy, player);
                     break;
 
                 case 3:
@@ -159,7 +320,8 @@ namespace H1_Projektuge_Opgave_SPIL
                     Console.WriteLine("You encounter an enemy!");
                     Console.ForegroundColor = ConsoleColor.Gray;
 
-                    combat(enemy, player);
+                    //combat(enemy, player);
+                    chest_Encounter(player);
                     break;
 
                 case 4:
@@ -167,7 +329,8 @@ namespace H1_Projektuge_Opgave_SPIL
                     Console.WriteLine("You encounter an enemy!");
                     Console.ForegroundColor = ConsoleColor.Gray;
 
-                    combat(enemy, player);
+                    //combat(enemy, player);
+                    chest_Encounter(player);
                     break;
 
                 default:
