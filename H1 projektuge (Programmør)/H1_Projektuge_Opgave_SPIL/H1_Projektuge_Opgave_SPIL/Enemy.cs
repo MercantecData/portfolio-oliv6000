@@ -32,17 +32,17 @@ namespace H1_Projektuge_Opgave_SPIL
                     name = "Dasher";
                     default_Damage = 3;
                     default_Health = 20;
-                    armor = 7 * (player.level * 0.43);
+                    armor = 2 * (player.level * 0.43);
                     health = default_Health * (player.level * 0.68);
                     damage = default_Damage * player.level;
-                    exp = default_Exp * (player.level * 1.6);
+                    exp = default_Exp * (player.level * 1.4);
                     break;
                 case 2:
                     name = "Dancer";
                     default_Damage = 4;
                     default_Health = 30;
                     armor = 7 * (player.level * 0.43);
-                    health = default_Health * (player.level * 0.68);
+                    health = default_Health * (player.level * 0.4);
                     damage = default_Damage * player.level;
                     exp = default_Exp * (player.level * 1.6);
                     break;
@@ -51,7 +51,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     default_Damage = 8;
                     default_Health = 15;
                     armor = 7 * (player.level * 0.43);
-                    health = default_Health * (player.level * 0.68);
+                    health = default_Health * (player.level * 0.4);
                     damage = default_Damage * player.level;
                     exp = default_Exp * (player.level * 1.4);
                     break;
@@ -59,7 +59,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     name = "Vixen";
                     default_Damage = 7;
                     default_Health = 25;
-                    health = default_Health * (player.level * 0.68);
+                    health = default_Health * (player.level * 0.46);
                     damage = default_Damage * player.level;
                     exp = default_Exp * (player.level * 1.8);
                     break;
@@ -68,7 +68,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     default_Damage = 9;
                     default_Health = 10;
                     armor = 7 * (player.level * 0.43);
-                    health = default_Health * (player.level * 0.68);
+                    health = default_Health * (player.level * 0.42);
                     damage = default_Damage * player.level;
                     exp = default_Exp * (player.level * 1.5);
                     break;
@@ -77,7 +77,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     default_Damage = 3;
                     default_Health = 50;
                     armor = 7 * (player.level * 0.43);
-                    health = default_Health * (player.level * 0.68);
+                    health = default_Health * (player.level * 0.41);
                     damage = default_Damage * player.level;
                     exp = default_Exp * (player.level * 1.7);
                     break;
@@ -86,7 +86,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     default_Damage = 2;
                     default_Health = 70;
                     armor = 7 * (player.level * 0.43);
-                    health = default_Health * (player.level * 0.68);
+                    health = default_Health * (player.level * 0.35);
                     damage = default_Damage * player.level;
                     exp = default_Exp * (player.level * 2);
                     break;
@@ -95,7 +95,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     default_Damage = 6;
                     default_Health = 30;
                     armor = 7 * (player.level * 0.43);
-                    health = default_Health * (player.level * 0.68);
+                    health = default_Health * (player.level * 0.41);
                     damage = default_Damage * player.level;
                     exp = default_Exp * (player.level * 1.9);
                     break;
