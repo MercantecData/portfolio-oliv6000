@@ -4,7 +4,7 @@ using System.Text;
 
 namespace H1_Projektuge_Opgave_SPIL
 {
-    class Equipment
+    class Equipment_Set
     {
         public string name;
         public string description;
@@ -12,7 +12,7 @@ namespace H1_Projektuge_Opgave_SPIL
         public double armor_Buff;
         public int price;
 
-        public Equipment(string name, string description, double health_Buff, double armor_Buff, int price)
+        public Equipment_Set(string name, string description, double health_Buff, double armor_Buff, int price)
         {
             this.name = name;
             this.description = description;
