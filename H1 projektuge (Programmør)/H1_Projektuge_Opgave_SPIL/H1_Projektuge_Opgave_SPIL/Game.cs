@@ -332,7 +332,7 @@ namespace H1_Projektuge_Opgave_SPIL
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Where would you like to go? You can also type 'stats' to see your improvements");
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("north, east, south or west");
+            Console.WriteLine("north, east, south or west. You can alost write 'SantaClause' to fight the boss(disclaimer: HE IS OPOP)");
 
 
             bool isRunning = true;
@@ -391,6 +391,10 @@ namespace H1_Projektuge_Opgave_SPIL
                         navigation(weapon, equipment, enemy, player);
                         break;
 
+                    case "SantaClause":
+                        encounter_Santa(enemy, weapon, equipment, player);
+                        break;
+
                     default:
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -401,6 +405,16 @@ namespace H1_Projektuge_Opgave_SPIL
                         break;
                 }
             }
+        }
+        public void encounter_Santa(Enemy enemy, List<Weapon> weapon, List<Equipment_Set> equipment, Player player)
+        {
+            Console.Clear();
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("HO HO HO HO HOOOOOOOOOOOOO!\n");
+
+            enemy.create_Santa(player);
+            combat(weapon, equipment, enemy, player);
         }
         public void encounter(List<Weapon> weapon, List<Equipment_Set> equipment, Enemy enemy, Player player)
         {
@@ -430,6 +444,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     Console.WriteLine("You encounter an enemy!");
                     Console.ForegroundColor = ConsoleColor.Gray;
 
+                    enemy.create_Enemy(player);
                     combat(weapon, equipment, enemy, player);
                     break;
 
@@ -438,6 +453,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     Console.WriteLine("You encounter an enemy!");
                     Console.ForegroundColor = ConsoleColor.Gray;
 
+                    enemy.create_Enemy(player);
                     combat(weapon, equipment, enemy, player);
                     break;
 
@@ -465,8 +481,15 @@ namespace H1_Projektuge_Opgave_SPIL
         }
         public void combat(List<Weapon> weapon, List<Equipment_Set> equipment, Enemy enemy, Player player)
         {
-            enemy.create_Enemy(player);
-            Console.Write("\nSantas evil raindeer ");
+
+            if (enemy.name == "Santa clause")
+            {
+
+            }
+            else
+            {
+                Console.Write("\nSantas evil raindeer ");
+            }
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(enemy.name);
             Console.ForegroundColor = ConsoleColor.Gray;

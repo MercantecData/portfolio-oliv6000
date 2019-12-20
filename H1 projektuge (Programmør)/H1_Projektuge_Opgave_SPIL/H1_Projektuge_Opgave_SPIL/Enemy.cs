@@ -34,7 +34,7 @@ namespace H1_Projektuge_Opgave_SPIL
                     default_Health = 20;
                     armor = 2 * (player.level * 0.43);
                     health = default_Health * (player.level * 0.68);
-                    damage = default_Damage * player.level;
+                    damage = default_Damage * (player.level);
                     exp = default_Exp * (player.level * 1.4);
                     break;
                 case 2:
@@ -103,6 +103,16 @@ namespace H1_Projektuge_Opgave_SPIL
                     Console.WriteLine("There is sadly no enemy to spawn D:");
                     break;
             }
+        }
+        public void create_Santa(Player player)
+        {
+            name = "Santa clause";
+            default_Damage = 10000;
+            default_Health = 100000;
+            armor = 100;
+            health = default_Health;
+            damage = default_Damage;
+            exp = 100000000 * default_Exp * (player.level * 1.4);
         }
     }
 }
